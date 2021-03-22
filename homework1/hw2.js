@@ -28,8 +28,18 @@ function lastIndexOf(str, searchValue, fromIndex = str.length) {
     return -1;
 }
 
+// way 2
+function lastIndexOf2(str, searchValue, fromIndex = str.length) {
+    const regExp = new RegExp(searchValue,"g");
+    if (fromIndex !== str.length) {
+        str = str.slice(0, fromIndex+1);
+    }
+    let matches = Array.from(str.matchAll(regExp));
+    return matches[matches.length-1].index;
+}
+
 console.log(lastIndexOf("hello hello world!", "hello"));
-console.log(lastIndexOf("hello hello world!", ""));
+console.log(lastIndexOf2("hello hello world!", ""));
 
 
 // ~~~~~ task 3 ~~~~~ //
