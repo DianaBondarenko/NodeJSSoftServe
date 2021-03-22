@@ -27,23 +27,6 @@ function lastIndexOf(str, searchValue, fromIndex = str.length) {
     }
     return -1;
 }
-function lastIndexOf2(str, searchValue, fromIndex = str.length) {
-    if (fromIndex === str.length) {
-        const regExp = new RegExp(searchValue,"g");
-        let matches = Array.from(str.matchAll(regExp));
-        return matches[matches.length-1].index;
-    }
-    else {
-       str.slice(0,fromIndex)
-    }
-
-    //console.log(matches[matches.length-1].index);
-    //console.log(Array.from(str.matchAll(regExp)));
-
-
-
-    return fromIndex === 0 ? regExp.test(str) : regExp.test(str.slice(fromIndex));
-}
 
 console.log(lastIndexOf("hello hello world!", "hello"));
 console.log(lastIndexOf("hello hello world!", ""));
