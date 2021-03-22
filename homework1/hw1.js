@@ -16,7 +16,7 @@ console.log(onesInBinary(1234));
 function sortStr(str) {
     if (str !== "") {
         let arr = str.split(" ");
-        return arr.sort((a, b) => a.match(/[1-9]/) - b.match(/[1-9]/));
+        return arr.sort((a, b) => a.match(/[1-9]/) - b.match(/[1-9]/)).join(" ");
     } else {
         return "";
     }
