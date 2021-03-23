@@ -9,20 +9,25 @@ console.log(concat("Hello", " ", "world!"))
 
 // ~~~~~ task 2 ~~~~~ //
 // lastIndexOf()
-function lastIndexOf(str, searchValue, fromIndex = str.length) {
-    //;
+function lastIndexOf(str, searchValue, fromIndex) {
     if (fromIndex < 0) fromIndex = 0;
-    if (fromIndex > str.length) fromIndex = str.length;
+    if (fromIndex > str.length || !fromIndex) fromIndex = str.length-1;
     if (searchValue === "") return fromIndex;
-    let indexInSearchValue = searchValue.length-1;
-    for (let i = fromIndex - 1; i >= 0; i--) {
-        if (str[i] == searchValue[indexInSearchValue]) {
-            indexInSearchValue --;
-            if (indexInSearchValue < 0) {
-                return i;
+    let indexInSearchValue = 0;
+    for (let i = fromIndex; i >= 0; i--) {
+        if (str[i] === searchValue[indexInSearchValue]) {
+            indexInSearchValue ++;
+            for (let j=i+1; ;j++) {
+                if (str[j] === searchValue[indexInSearchValue]) {
+                    indexInSearchValue++;
+                    if (indexInSearchValue >= searchValue.length-1) {
+                        return i;
+                    }
+                } else {
+                    indexInSearchValue = 0;
+                    break;
+                }
             }
-        } else {
-            indexInSearchValue = searchValue.length-1;
         }
     }
     return -1;
