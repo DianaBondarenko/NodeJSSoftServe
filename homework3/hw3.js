@@ -11,7 +11,7 @@ const arr = [15, 78, 65, 87, 75]
 console.log(pop(arr));
 
 
-// ~~~~~ task 12 ~~~~~ //
+// ~~~~~ task 2 ~~~~~ //
 // push()
 function push(arr, ...args) {
     let i = arr.length;
@@ -32,7 +32,7 @@ function shift(arr) {
     if (arr.length == 0) return undefined;
     const first = arr[0];
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = arr[i + 1]
+        arr[i] = arr[i + 1];
     }
     arr.length--;
     return first;
@@ -62,13 +62,17 @@ console.log(arr);
 
 // ~~~~~ task 5 ~~~~~ //
 // concat()
-function concat(arr, ...arguments) {
-    return [...arr, ...arguments];
+function concat(arr, ...args) {
+    const res = [...arr];
+    for (let arg of args) {
+        Array.isArray(arg)?res.push(...arg):res.push(arg);
+    }
+    return res;
 }
-console.log(concat(arr, 340, 505));
+console.log(concat(arr, [340, 505]));
 
 
-// ~~~~~ task 5 ~~~~~ //
+// ~~~~~ task 6 ~~~~~ //
 // map() -> reduce()
 const fruits = ['Яблоко', 'Банан', 'Ананас'];
 
@@ -78,7 +82,7 @@ fruits.reduce((res, elem)=> {
 }, [])
 
 
-// ~~~~~ task 5 ~~~~~ //
+// ~~~~~ task 7 ~~~~~ //
 // filter() -> reduce()
 fruits.reduce((res, elem)=>{
     if (elem[0].toLowerCase()=='а') {
@@ -89,7 +93,7 @@ fruits.reduce((res, elem)=>{
 }, [])
 
 
-// ~~~~~ task 6 ~~~~~ //
+// ~~~~~ task 8 ~~~~~ //
 // forEach() -> reduce()
 fruits.reduce((res, elem, index)=>{
     res.push(`${index+1}: ${elem};`)
