@@ -35,7 +35,7 @@ console.log(findChair([['XX', 2], ['XXXX', 6], ['XXXXX', 4]], 10));
 function closestPoints(points) {
     let distance = (x1, y1, x2, y2) => Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     let res = [];
-    let min = 1000;
+    let min = Infinity;
     points.forEach((el, i) => {
         for (let j = i + 1; j < points.length; j++) {
             let dist = distance(...points[i], ...points[j]);
