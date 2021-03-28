@@ -24,19 +24,17 @@ console.log(ticTacToe(board));
 function encodingLetter(letter) {
     if (letter === '') return '';
     const sentences = letter.split(/[\.!\?] /).map(el => el.match(/[\w']+/g));
-    let message = '';
+    let message = [];
     for (let start = 0; start < sentences.length;) {
         let firstSent = sentences[start];
         let otherSent = sentences.slice(start+1);
         let wordIndexes = firstSent.map(word => word.includes('\'') ? word.length - 1 : word.length);
         let newPart = wordIndexes.map((el, i) => otherSent[i][el - 1]).join(' ');
-        message += newPart[0].toUpperCase() + newPart.slice(1) + '.';
-        if (otherSent.length > wordIndexes.length) {
-            message += ' ';
-            start += wordIndexes.length + 1;
-        } else break;
+        message.push(newPart[0].toUpperCase() + newPart.slice(1) + '.');
+        if (otherSent.length > wordIndexes.length) start += wordIndexes.length + 1;
+        else break;
     }
-    return message;
+    return message.join(' ');
 }
 
 const ex = 'Yesterday, we bumped into Laura. It had to happen, but you can\'t ' +
