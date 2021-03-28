@@ -13,6 +13,28 @@ function ticTacToe(ticTacToeBoard) {
     return winner;
 }
 
+// way2
+//function ticTacToe(board) {
+//     //empty
+//     if (board.some(row => row.includes(0))) return -1;
+//     //rows
+//     if (board.some(row => row.every(el => el===1))) return 1;
+//     if (board.some(row => row.every(el => el===2))) return 2;
+//     // columns
+//     for (let i=0; i<board.length; i++) {
+//         let column = [board[0][i], board [1][i], board[2][i]];
+//         if (column.every(el => el === 1)) return 1;
+//         if (column.every(el => el === 2)) return 2;
+//     }
+//     //diagonals
+//     let leftDiag = [board[0][0], board[1][1], board[2][2]];
+//     let rightDiag = [board[0][2],board[1][1], board[2][0]];
+//     if (leftDiag.every(el => el===1) || rightDiag.every(el => el===1)) return 1;
+//     if (leftDiag.every(el => el===2) || rightDiag.every(el => el===2)) return 2;
+//
+//     return 0;
+// }
+
 const board =
        [[1, 2, 1], 
         [1, 1, 2],
