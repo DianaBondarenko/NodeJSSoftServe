@@ -1,18 +1,17 @@
-// ~~~~~ task  2 ~~~~~ //
+// ~~~~~ task 2 ~~~~~ //
 function damagedOrSunk(board, attacks) {
     const fullBoard = [].concat(...board);
     const boatNum = 3;
     const boardHeight = board.length;
-    let scoring = {}
+    let scoring = {};
     let rez = {
         sunk: 0,
         damaged: 0,
         notTouched: 0,
         points: 0
     }
-    let findBoats = (board, num) => board.filter(el => el == num);
     for (let i = 1; i <= boatNum; i++) {
-        scoring['boat' + i] = (findBoats(fullBoard, i));
+        scoring['boat' + i] = fullBoard.filter(el => el == 1);
     }
     attacks.forEach(el => {
         let i = boardHeight - el[1];
