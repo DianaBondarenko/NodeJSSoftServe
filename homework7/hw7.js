@@ -1,4 +1,4 @@
-// ~~~~~ task  2~~~~~ //
+// ~~~~~ task  2 ~~~~~ //
 function damagedOrSunk(board, attacks) {
     const fullBoard = [].concat(...board);
     const boatNum = 3;
