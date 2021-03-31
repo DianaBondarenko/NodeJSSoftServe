@@ -1,3 +1,28 @@
+// ~~~~~ task 1 ~~~~~ //
+function getSolution(arr, sum) {
+    let res = [];
+    let i = 0;
+    let copyArr;
+    res.push(arr[0]);
+
+    while (i < arr.length - 1) {
+        copyArr = [...res];
+        res.length = 0;
+        for (let j = 0; j < copyArr.length; j++) {
+            res.push(copyArr[j] + arr[i + 1]);
+            res.push(copyArr[j] - arr[i + 1]);
+        }
+        i++;
+    }
+    return res.includes(sum) ? true : false;
+}
+
+console.log(getSolution([1, 3, 4, 6, 8], -2)); // true
+console.log(getSolution([15, 2, 3], 10)); // true
+console.log(getSolution([1, 5, 3, 2, 5], -2)); // false
+console.log(getSolution([1, 3, 4, 6, 8], -8)); // true
+
+
 // ~~~~~ task 2 ~~~~~ //
 function countdown(duration) {
     let firstChar = /^-/.exec(duration) ? '-' : '+';
