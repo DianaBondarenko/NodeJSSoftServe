@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 1</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/nerdamer.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Algebra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Calculus.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Solve.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Demo 1</h1>
+    <div id="inputs">
+        <select name="tasks" id="taskSelect">
+            <option value="-1" selected id="selectDefaultOption">Choose task</option>
+            <option value="task1">Task 1 'Chessboard'</option>
+            <option value="task2">Task 2 'Analysis of envelopes'</option>
+            <option value="task3">Task 3 'Sorting triangles'</option>
+            <option value="task4">Task 4 'Palindrome'</option>
+            <option value="task5">Task 5 'Lucky tickets'</option>
+            <option value="task6">Task 6 'Sequence of numbers'</option>
+            <option value="task7">Task 7 'Fibonacci sequence'</option>
+        </select>
+        <div id ="inputForm" action="">
+        </div>
+        <a href="#" class="btn" id="calculateBtn">Get result</a>
+    </div>
+    <div id="preview"></div>
+</div>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
