@@ -1,10 +1,17 @@
+const {validation2} = require('./validation.js')
 const nerdamer = require('./nerdamer/nerdamer.core.js')
 exports.envelopes = function (env1, env2) {
-    if (env1.a > env2.c && env1.b > env2.d || env1.a > env2.d && env1.b > env2.c) return 2;
-    if (env2.c > env1.a && env2.d > env1.b || env2.c > env1.b && env2.d > env1.a) return 1;
-    if (hardCheck(env1, env2)) return 2;
-    if (hardCheck(env2, env1)) return 1;
-    return 0;
+    const validation = validation2(env1, env2, arguments.length);
+    console.log(typeof env1.a, typeof env1.b);
+    console.log(validation);
+    if (validation === true) {
+        if (env1.a > env2.c && env1.b > env2.d || env1.a > env2.d && env1.b > env2.c) return 2;
+        if (env2.c > env1.a && env2.d > env1.b || env2.c > env1.b && env2.d > env1.a) return 1;
+        if (hardCheck(env1, env2)) return 2;
+        if (hardCheck(env2, env1)) return 1;
+        return 0;
+    } else return validation;
+
     function hardCheck(env1, env2) {
         let {a, b} = env1;
         let {c, d} = env2;
