@@ -66,85 +66,85 @@ exports.validation2 = function (env1, env2, argLen) {
 //     return true;
 // }
 //
-// // ~~~~~ task 4 ~~~~~ //
-// export function validation4(number, argLen) {
-//     if (argLen > 1 || argLen < 1) return {
-//         status: 'failed',
-//         reason: 'Incorrect number of arguments. There must be 1 argument.'
-//     }
-//     if (Number.isInteger(number)) {
-//         if (Math.abs(number) < 10 || Math.abs(number) > 10 ** 20) return {
-//             status: 'failed',
-//             reason: 'Incorrect value of the argument. Number\'s length can be from 2 to 16.'
-//         }
-//     } else if (typeof number === 'string' && !isNaN(Number(number))){
-//         if (number.length < 2 || number.length > 20) return {
-//             status: 'failed',
-//             reason: 'Incorrect value of the argument. Number\'s length in string format must be from 2 to 20.'
-//         }
-//     } else return {
-//         status: 'failed',
-//         reason: 'Incorrect type of the argument. There must be an integer number or an integer number in string format.'
-//     }
-//     return true;
-// }
-//
-// // ~~~~~ task 5 ~~~~~ //
-// export function validation5(context, argLen) {
-//     if (argLen > 1 || argLen < 1) return {
-//         status: 'failed',
-//         reason: 'Incorrect number of arguments. There must be 1 argument.'
-//     }
-//     if (!(context instanceof Object) || Array.isArray(context)) return {
-//         status: 'failed',
-//         reason: 'Incorrect type of argument. There must be an object.'
-//     }
-//     if (typeof context.min !== 'number' || typeof context.max !== 'number') return {
-//         status: 'failed',
-//         reason: 'Incorrect arguments\' data. Minimal and maximum must be numbers.'
-//     }
-//     if (context.min < 0 || context.max < 0 || context.min > 999999 || context.max > 999999)  return {
-//         status: 'failed',
-//         reason: 'Incorrect value of arguments\' data. Minimal and maximum must be from 0 to 999999.'
-//     }
-//     return true;
-// }
-//
-// // ~~~~~ task 6 ~~~~~ //
-// export function validation6(n, m, argLen) {
-//     if (argLen > 2 || argLen < 2) return {
-//         status: 'failed',
-//         reason: 'Incorrect number of arguments. There must be 2 arguments.'
-//     }
-//     if (!Number.isInteger(n) || typeof m !== 'number') return {
-//         status: 'failed',
-//         reason: 'Incorrect type of arguments. There must be an integer number and a number.'
-//     }
-//     if (n < 1 || n > 1000000 || m < 1 || m > 1000000) return {
-//         status: 'failed',
-//         reason: 'Incorrect value of arguments. Length and minimal square must be from 1 to 1000000.'
-//     }
-//     return true;
-// }
-//
-// // ~~~~~ task 7 ~~~~~ //
-// export function validation7(context,arLen) {
-//     if (arLen > 1 || arLen < 1) return {
-//         status: 'failed',
-//         reason: 'Incorrect number of arguments. There must be 1 argument.'
-//     }
-//     if (!(context instanceof Object) || Array.isArray(context)) return {
-//         status: 'failed',
-//         reason: 'Incorrect type of argument. There must be an object.'
-//     }
-//     if (!((Number.isInteger(context.min) && Number.isInteger(context.max)) || Number.isInteger(context.length))) return {
-//         status: 'failed',
-//         reason: 'Incorrect argument\'s values. Minimal and maximum or length must be numbers.'
-//     }
-//     if (!((context.min >= 1 && context.max >= 1  && context.min <= 1000000 && context.max <= 1000000)
-//         || (context.length >= 1 && context.length <= 1000000)))  return {
-//         status: 'failed',
-//         reason: 'Incorrect value of arguments\' data. Minimal and maximum or length must be from 1 to 1000000.'
-//     }
-//     return true;
-// }
+// ~~~~~ task 4 ~~~~~ //
+exports.validation4 = function (number, argLen) {
+    if (argLen > 1 || argLen < 1) return {
+        status: 'failed',
+        reason: 'Incorrect number of arguments. There must be 1 argument.'
+    }
+    if (Number.isInteger(number)) {
+        if (Math.abs(number) < 10 || Math.abs(number) > 10 ** 20) return {
+            status: 'failed',
+            reason: 'Incorrect value of the argument. Number\'s length can be from 2 to 16.'
+        }
+    } else if (typeof number === 'string' && !isNaN(Number(number))){
+        if (number.length < 2 || number.length > 20) return {
+            status: 'failed',
+            reason: 'Incorrect value of the argument. Number\'s length in string format must be from 2 to 20.'
+        }
+    } else return {
+        status: 'failed',
+        reason: 'Incorrect type of the argument. There must be an integer number or an integer number in string format.'
+    }
+    return true;
+}
+
+// ~~~~~ task 5 ~~~~~ //
+exports.validation5 = function(context, argLen) {
+    if (argLen > 1 || argLen < 1) return {
+        status: 'failed',
+        reason: 'Incorrect number of arguments. There must be 1 argument.'
+    }
+    if (!(context instanceof Object) || Array.isArray(context)) return {
+        status: 'failed',
+        reason: 'Incorrect type of argument. There must be an object.'
+    }
+    if (typeof context.min !== 'number' || typeof context.max !== 'number') return {
+        status: 'failed',
+        reason: 'Incorrect arguments\' data. Minimal and maximum must be numbers.'
+    }
+    if (context.min < 0 || context.max < 0 || context.min > 999999 || context.max > 999999)  return {
+        status: 'failed',
+        reason: 'Incorrect value of arguments\' data. Minimal and maximum must be from 0 to 999999.'
+    }
+    return true;
+}
+
+// ~~~~~ task 6 ~~~~~ //
+exports.validation6 = function(n, m, argLen) {
+    if (argLen > 2 || argLen < 2) return {
+        status: 'failed',
+        reason: 'Incorrect number of arguments. There must be 2 arguments.'
+    }
+    if (!Number.isInteger(n) || typeof m !== 'number') return {
+        status: 'failed',
+        reason: 'Incorrect type of arguments. There must be an integer number and a number.'
+    }
+    if (n < 1 || n > 1000000 || m < 1 || m > 1000000) return {
+        status: 'failed',
+        reason: 'Incorrect value of arguments. Length and minimal square must be from 1 to 1000000.'
+    }
+    return true;
+}
+
+// ~~~~~ task 7 ~~~~~ //
+exports.validation7 = function(context,arLen) {
+    if (arLen > 1 || arLen < 1) return {
+        status: 'failed',
+        reason: 'Incorrect number of arguments. There must be 1 argument.'
+    }
+    if (!(context instanceof Object) || Array.isArray(context)) return {
+        status: 'failed',
+        reason: 'Incorrect type of argument. There must be an object.'
+    }
+    if (!((Number.isInteger(context.min) && Number.isInteger(context.max)) || Number.isInteger(context.length))) return {
+        status: 'failed',
+        reason: 'Incorrect argument\'s values. Minimal and maximum or length must be numbers.'
+    }
+    if (!((context.min >= 1 && context.max >= 1  && context.min <= 1000000 && context.max <= 1000000)
+        || (context.length >= 1 && context.length <= 1000000)))  return {
+        status: 'failed',
+        reason: 'Incorrect value of arguments\' data. Minimal and maximum or length must be from 1 to 1000000.'
+    }
+    return true;
+}
