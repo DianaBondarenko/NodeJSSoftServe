@@ -1,0 +1,1 @@
+{"name":"Diana","surname":"Bondarenko","login":"di","password":"passw4hw","email":"dibon@gmail.com","dob":"2001/07/08"}
