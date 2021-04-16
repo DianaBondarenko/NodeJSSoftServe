@@ -32,8 +32,4 @@ authForm.addEventListener('submit', (event) => {
         }
         xhr.send();
     } else alert('Incorrect data!');
-
-    // if (checkStr50(inputs[0].value) && checkPassw(inputs[1].value)) {
-    //     authForm.submit();
-    // } else alert('Incorrect data!');
 })
