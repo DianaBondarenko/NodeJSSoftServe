@@ -8,14 +8,7 @@ regForm.addEventListener('submit', (event) => {
     const inputs = Array.from(document.querySelectorAll('#regForm input')).map(el => el.value);
     let [name, surname, login, password, email, dob] = inputs;
     if (checkName(name) && checkName(surname) && checkLogin(login) && checkPassw(password) && checkEmail(email) && checkDate(dob)) {
-        let xhr = new XMLHttpRequest();
-        dob = dob.replaceAll('-', '/');
-        let url = `http://localhost:8080/reg/?name=${name}&surname=${surname}&login=${login}&password=${password}&email=${email}&dob=${dob}`;
-        xhr.open('GET', url);
-        xhr.onload = function () {
-            alert(xhr.responseText);
-        }
-        xhr.send();
+        sendRequest(`http://localhost:8080/reg/?name=${name}&surname=${surname}&login=${login}&password=${password}&email=${email}&dob=${dob}`);
     } else alert('Incorrect data!');
 })
 authForm.addEventListener('submit', (event) => {
@@ -23,13 +16,14 @@ authForm.addEventListener('submit', (event) => {
     const inputs = Array.from(document.querySelectorAll('#authForm input')).map(el => el.value);
     let [login, password] = inputs;
     if (checkLogin(login) && checkPassw(password)) {
-        let xhr = new XMLHttpRequest();
-        let url = `http://localhost:8080/auth/?login=${login}&password=${password}`;
-        console.log(url);
-        xhr.open('GET', url);
-        xhr.onload = function () {
-            alert(xhr.responseText);
-        }
-        xhr.send();
+        sendRequest(`http://localhost:8080/auth/?login=${login}&password=${password}`);
     } else alert('Incorrect data!');
 })
+function sendRequest(url) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = function () {
+        alert(xhr.responseText);
+    }
+    xhr.send();
+}
