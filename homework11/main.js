@@ -24,7 +24,7 @@ authForm.addEventListener('submit', (event) => {
     let [login, password] = inputs;
     if (checkLogin(login) && checkPassw(password)) {
         let xhr = new XMLHttpRequest();
-        let url = `http://localhost:8081/auth/?login=${login}&password=${password}`;
+        let url = `http://localhost:8080/auth/?login=${login}&password=${password}`;
         console.log(url);
         xhr.open('GET', url);
         xhr.onload = function () {
