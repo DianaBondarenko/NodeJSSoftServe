@@ -29,53 +29,6 @@ http.createServer((req, res) => {
             case '/reg/': {
                 const {name, surname, login, password, email, dob, regtime} = query;
 
-                //last
-                // if (login) {
-                //
-                //     //last
-                //
-                //     pool.query(`SELECT * FROM users WHERE login='${login}' OR email ='${email}';`)
-                //         .then(res => {
-                //             let user = res.rows[0];
-                //             if (user) {
-                //                 result = {status: 418, message: 'User already exists.'};
-                //                 resolve(result);
-                //             } else {
-                //                 console.log('creating new user')
-                //                     //`INSERT INTO users (name, surname, login, password, email, dob, regtime)
-                //                 //VALUES('${name}', '${surname}', '${login}', '${password}','${email}','${dob}','${regtime}');`
-                //                 pool.query("INSERT INTO users (name, surname, login, password, email, dob, regtime) \n" +
-                //                     "VALUES('${name}', '${surname}', '${login2}', '${password}','${email2}','2001-07-08','2021/4/18 23:53');")
-                //                     .then(res => {
-                //                         console.log(res);
-                //                         result = {status: 200, message: 'Account was created successfully.'};
-                //                         resolve(result);
-                //                     })
-                //                     .catch(er =>{
-                //                         console.log(er);
-                //                         result = {status: 418, message: 'Some troubles with inserting data.'};
-                //                         reject(result);
-                //                     })
-                //                 // pool.query("INSERT INTO users (name, surname, login, password, email, dob, regtime) VALUES('${name}', '${surname}', '${login21}', '${password}','${email12}','2001-07-08','2021/4/18 23:53');")
-                //                 //     .then(res => {
-                //                 //         console.log(res)
-                //                 //     })
-                //                 //     .catch(er => {
-                //                 //         console.log(er);
-                //                 //     })
-                //                 // resolve()
-                //             }
-                //         })
-                //         .then(() => {
-                //             pool.end();
-                //         })
-                //         .catch(er => {
-                //             console.log(er);
-                //             result = {status: 418, message: 'Something in query went wrong.'};
-                //             reject(result);
-                //         })
-                // }
-
                 if(login) {
                     pool.query(`SELECT * FROM users WHERE login='${login}' OR email ='${email}';`)
                         .then(res => {
@@ -88,7 +41,6 @@ http.createServer((req, res) => {
                                 pool.query(`INSERT INTO users (name, surname, login, password, email, dob, regtime) 
                                 VALUES('${name}', '${surname}', '${login}', '${password}','${email}','${dob}','${regtime}');`)
                                     .then(res => {
-                                        //console.log(res);
                                         result = {status: 200, message: 'Account was created successfully.'};
                                         resolve();
                                     })
@@ -109,28 +61,8 @@ http.createServer((req, res) => {
             case '/auth/': {
                 const {login, password} = query;
                 if (login) {
-
-                    // pool.query(`SELECT * FROM users WHERE login='${login}' AND password='${password}'`, (err, res) => {
-                    //     if (err) {
-                    //         console.log(err);
-                    //         result = {status: 418, message: `Something in query went wrong`};
-                    //     } else {
-                    //         user = res.rows[0];
-                    //         if (!user) {
-                    //             result = {status: 418, message: `User ${login} doesn't exist or wrong password.`}; //!!!!!!!!!!!!!!!!!!
-                    //         } else {
-                    //             console.log('User data:', user);
-                    //             result = user;
-                    //         }
-                    //     }
-                    //     //console.log(res);
-                    //
-                    // })
-                    // pool.end();
-
                     pool.query(`SELECT * FROM users WHERE login='${login}';`)
                         .then(res => {
-                            //console.log(res);
                             let user = res.rows[0];
                             if (user) {
                                 console.log('User data:', user);
