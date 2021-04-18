@@ -90,6 +90,7 @@ http.createServer((req, res) => {
                 break;
         }
     })
+    
     promise.then(() => {
         console.log('Result:', JSON.stringify(result));
         res.write(JSON.stringify(result));
@@ -98,8 +99,7 @@ http.createServer((req, res) => {
     promise.catch(() => {
         console.log('Error');
     })
-
-
+    
 }).listen(8080);
 
 console.log('Server on http://localhost:8080');
